@@ -4,16 +4,15 @@
 
 #### Livro.java:
 
-- A classe `Livro` define a estrutura de um livro, incluindo propriedades como título, autor e ano de publicação.
-- Um construtor é fornecido para inicializar um objeto `Livro` com os valores fornecidos.
-- Métodos de acesso (`get`) estão disponíveis para recuperar detalhes específicos do livro, como título, autor e ano de publicação.
+- A classe Livro é responsável por definir a estrutura de um livro, contendo propriedades como título, autor e ano de publicação.
+- Foi implementado um construtor para facilitar a inicialização de um objeto Livro com os valores necessários.
+- Métodos de acesso (get) foram implementados para permitir a recuperação de informações específicas do livro, tais como título, autor e ano de publicação.
 
 #### Biblioteca.java:
-
-- A classe `Biblioteca` representa a biblioteca e mantém uma lista de livros.
-- Um construtor inicializa a lista de livros.
-- O método `adicionarLivro` permite adicionar um novo livro à biblioteca.
-- O método `getLivros` retorna a lista de livros na biblioteca.
+- A classe Biblioteca representa a biblioteca e mantém uma lista de livros.
+- Um construtor é responsável por inicializar a lista de livros da biblioteca.
+- O método adicionarLivro está disponível para adicionar um novo livro à biblioteca.
+- O método getLivros retorna a lista de livros presente na biblioteca.
 
 ### Interfaces do Usuário (ui):
 
