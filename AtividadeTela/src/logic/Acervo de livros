@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AcervoDeLivros extends JFrame {
+public class AcervoDeLivros extends JFrame { // primeiro você pensa no que quer mostrar, deepois em como (tabela) 
     private List<String[]> livros;
     private DefaultTableModel tableModel;
 
@@ -20,12 +20,12 @@ public class AcervoDeLivros extends JFrame {
 
         setLayout(new BorderLayout());
 
-        // Create search panel
+        // Cria painel de busca 
         JPanel searchPanel = new JPanel();
         searchPanel.setLayout(new FlowLayout());
 
         JLabel searchLabel = new JLabel("Buscar Livro:");
-        JTextField searchField = new JTextField(20);
+        JTextField searchField = new JTextField(20); // lembrar de por tamanho
         JButton searchButton = new JButton("Buscar");
 
         searchPanel.add(searchLabel);
@@ -34,17 +34,17 @@ public class AcervoDeLivros extends JFrame {
 
         add(searchPanel, BorderLayout.NORTH);
 
-        // Create table
+        // Para crear a tabela 
         String[] columnNames = {"ID", "Título", "Autor", "Ano", "Status"};
         tableModel = new DefaultTableModel(columnNames, 0);
         JTable table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
         add(scrollPane, BorderLayout.CENTER);
 
-        // Populate table with all books
+        // Mostrar a tabela com todos os livros 
         populateTable(livros);
 
-        // Add action listener for search button
+        // Adicionar  action listener para o botão de busca 
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
