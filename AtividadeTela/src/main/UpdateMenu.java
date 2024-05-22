@@ -31,12 +31,28 @@ public class UpdateMenu extends JPanel {
         // Criação dos menus
         JMenu fileMenu = new JMenu("Menu");
         JMenu aboutMenu = new JMenu("Sobre");
+        JMenu collectioMenu = new JMenu("Acervo de livros"); // acrescentei o menu Acervo de livros 
 
         // Criação dos itens de menu para o menu
         JMenuItem bibliotecario = new JMenuItem("Bibliotecário");
         JMenuItem membro = new JMenuItem("Membro");
         JMenuItem administrador = new JMenuItem("Administrador");
         JMenuItem sair = new JMenuItem("Sair");
+
+        // Criar o item de menu "Sobre"
+        JMenuItem sobre = new JMenuItem("Sobre");
+        aboutMenu.add(sobre);
+
+        // Adicionar um ActionListener para o item de menu "Sobre"
+        sobre.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,
+                    "Sistema Bibliotecário\n Atividade de seminario da matéria de POO do 3º periodo do curso de ADS \n Sistema de gerenciamento de biblioteca desenvolvido em Java, com uma interface gráfica de usuário (GUI).\n \n\nProgramadores:\n- Adila \n- Yan \n- Natiele ",
+                    "Sobre",
+                    JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
 
         // Adiciona um ouvinte de ação ao item "Sair"
         sair.addActionListener(new ActionListener() {
@@ -74,16 +90,40 @@ public class UpdateMenu extends JPanel {
             }
         });
 
+        
+        // Ações ao clicar no menuitem Acervo de Livros
+        acervoDeLivros.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Criar lista de livros de exemplo usei somente livros voltados a programação 
+                List<String[]> livros = new ArrayList<>();
+                livros.add(new String[]{"1", "JAVA como programar ", "Paul Deitel", "2016", "Disponível"});
+                livros.add(new String[]{"2", "Engenharia de Softwarw ", "Roger S. Pressman", "2021", "Emprestado"});
+                livros.add(new String[]{"3", "Sistemas de Banco de Dados", "Elmasri", "2019", "Disponível"});
+                livros.add(new String[]{"4", "Sistemas Operacionais Modernos", "Andrew S Tanenbaum", "2024", "Disponível"});
+                livros.add(new String[]{"5", "Entendendo Algoritmos: guia Ilustrado", "Aditya Y.Bhargava", "2017", "Disponível"});
+                livros.add(new String[]{"6", "Arquitetura Limpa", "Robert C. Martin", "2019", "Emprestado"});
+                livros.add(new String[]{"7", "Introdução à Linguagem SQL ", "Thomas Nield ", "2016", "Emprestado"});
+                livros.add(new String[]{"8", "Modelagem de Dados", "José Osvaldo de Sordi", "2019", "Disponível"});
+                livros.add(new String[]{"9", "Governaça de Dados ", "Carlos Bardieri", "2019", "Disponível"});
+               
+                AcervoDeLivros acervoDeLivrosFrame = new AcervoDeLivros(livros);
+                acervoDeLivrosFrame.setVisible(true);
+            }
+        });
+
         // Adiciona os menus à barra de menu
         barramenu.add(fileMenu);
         barramenu.add(aboutMenu);
+        barramenu.add(collectioMenu);
 
-        // Adiciona os itens de menu ao menu
+         // Adiciona os itens de menu ao menu
         fileMenu.add(bibliotecario);
         fileMenu.add(membro);
         fileMenu.add(administrador);
         fileMenu.addSeparator(); // Adiciona uma linha separadora
         fileMenu.add(sair);
+        collectioMenu.add(acervoDeLivros); // Adicionar o item de menu Acervo de Livros ao collectioMenu 
 
         // Define a barra de menu para este painel
         setLayout(new BorderLayout());
